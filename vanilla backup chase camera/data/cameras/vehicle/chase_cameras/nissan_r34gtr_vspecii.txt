@@ -1,0 +1,9 @@
+#include include/default_chase_camera_standard.txt
+
+POSITION_OFFSET 0.0 1.346 4.374
+
+TARGET_Z_OFFSET 1.3325
+
+ROOF_LINE_HEIGHT 1.14
+
+DELTA_DIST_FOR_LOOKBACK	0.155

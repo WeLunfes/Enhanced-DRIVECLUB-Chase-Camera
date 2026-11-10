@@ -1,0 +1,71 @@
+TARGET_Y_OFFSET				2.0
+ROTATION_OFFSET				0.0 -11.65 0.0
+SCREEN_PLANE_BIAS			25
+* Reflect chase camera angle to provide look into corners
+REFLECT_CHASE_RATIO			2
+* Heading pitch and roll damping  0.01 = no rotation, 0.9 = quite damped
+HPR_DAMPING 				0.2   0.8   0.0
+
+SHM_ACCEL_UP_POS_SCALE			1.0
+SHM_ACCEL_UP_NEG_SCALE			0.0
+SHM_ACCEL_UP_MAX_AMPLITUDE		10.0
+SHM_ACCEL_UP_NATURAL_FREQ		1.075
+SHM_ACCEL_FWD_POS_SCALE			1.8
+SHM_ACCEL_FWD_NEG_SCALE			0.3
+SHM_ACCEL_FWD_MAX_AMPLITUDE		10.0
+SHM_ACCEL_FWD_NATURAL_FREQ		0.75
+
+* Forward shift to compensate for FOV Change
+FORWARD_SHIFT_AT_HIGH_SPEED		1.3
+
+LOOKAT_MAX_PITCH_UP_ANGLE		10.0LOOKAT_MAX_PITCH_DOWN_ANGLE		10.0LOOKAT_MAX_RISE_ANGLE			10.0LOOKAT_MAX_DROP_ANGLE			6.0LOOKAT_CLAMP_LEFT			30.0LOOKAT_CLAMP_RIGHT			30.0
+ROOF_LINE_TO_HORIZON_GAP		0.05HORIZON_DISTANCE_AT_REST		250.0HORIZON_DISTANCE_AT_HIGH_SPEED		250.0SHIFT_FOR_HORIZON_RAISE_RATE		2.5SHIFT_FOR_HORIZON_LOWER_RATE		0.25SHIFT_FOR_HORIZON_SMOOTHING		0.25SHIFT_FOR_HORIZON_PITCH_FACTOR		10.0
+
+HIGH_SPEED_SETTING_MPH 210.0
+ANGLE_SMOOTHING 0.9
+
+* Align camera with vehicle forward cam, will affect reflect behaviour
+ALIGN_FORWARD_FRACTION_AT_0_DEG 0.0
+ALIGN_FORWARD_FRACTION_AT_90_DEG 0.0
+
+* Extra alignment when yaw rate is zero, blended out up to yaw rate limit, scaled by 1+Scalar
+ADDITIONAL_ALIGNMENT_YAW_RATE_LIMIT		0.0
+ADDITIONAL_ALIGNMENT_SCALAR			0.0
+* The sensor height. Used to calculate the field of view from focal length
+HALF_SENSOR_HEIGHT 0.00812
+
+* FOV Change 
+if Is3DEnabled
+	FOCAL_LENGTH_AT_REST_MM		13
+	FOCAL_LENGTH_AT_HIGH_SPEED_MM	5
+else
+	FOCAL_LENGTH_AT_REST_MM		14
+	FOCAL_LENGTH_AT_HIGH_SPEED_MM	6
+endif
+
+* --------------------------------------------------------------------------------
+* How much the camera should pull back on boost
+*   backwardsShiftOnBoost			How far to shift
+*   backwardsShiftOnBoostTime		How long to stay at shifted value
+*   backwardsShiftOnBoostBlendIn	Blending in when just starting to boost
+*   m_backwardsShiftOnBoostBlendOut	Blending out when returning back to normal
+* --------------------------------------------------------------------------------
+PULL_BACK_AT_HIGH_SPEED 0.5
+if Is3DEnabled
+	BACKWARDS_SHIFT_ON_BOOST 1 0.2 8 8
+else
+	BACKWARDS_SHIFT_ON_BOOST 1.25 0.3 9 9
+endif
+
+# -------------------------------------------
+# Camera high freq shake modifiers
+# CAMERA_HIGH_FREQ_SHAKE_MODIFIER
+#   Name
+#   PosXMultiplier
+#   PosYMultiplier
+#   PosZMultiplier
+#   PitchMultiplier
+#   YawMultiplier
+#   RollMultiplier 
+# -------------------------------------------
+CAMERA_HIGH_FREQ_SHAKE_MODIFIER Speed		0 2 0 0.5 1.0 0.5

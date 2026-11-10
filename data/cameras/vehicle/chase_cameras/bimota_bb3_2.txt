@@ -1,0 +1,7 @@
+#include include/default_chase_camera_bike.txt
+
+POSITION_OFFSET 0.0 1.656  3.978
+
+ROOF_LINE_HEIGHT 1.375
+
+DELTA_DIST_FOR_LOOKBACK	-0.0469
